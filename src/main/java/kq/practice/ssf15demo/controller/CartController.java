@@ -1,5 +1,6 @@
 package kq.practice.ssf15demo.controller;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -44,7 +45,8 @@ public class CartController {
 
         ModelAndView mav = new ModelAndView("cart");
         HashOperations<String, String, String> hashOps = template.opsForHash();
-        List<Item> cart = getCart(sess);
+        List<Item> cart = new ArrayList<>();
+        // getCart(sess);
 
         if (template.hasKey(name)) {
             Map<String, String> list = hashOps.entries(name);

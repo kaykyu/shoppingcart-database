@@ -94,8 +94,8 @@ public class CartController {
     }
 
     @PostMapping(path = "/checkout")
-    public ModelAndView postCartCheckout(HttpSession sess) {
-        ModelAndView mav = new ModelAndView("cart");
+    public String postCartCheckout(HttpSession sess) {
+        // ModelAndView mav = new ModelAndView("cart");
 
         List<Item> cart = getCart(sess);
         System.out.printf("Checking out cart: %s\n", cart);
@@ -108,11 +108,11 @@ public class CartController {
 
         sess.invalidate();
 
-        mav.addObject("item", new Item());
-        mav.setStatus(HttpStatusCode.valueOf(200));
+        // mav.addObject("item", new Item());
+        // mav.setStatus(HttpStatusCode.valueOf(200));
 
-        mav.setViewName("index");
+        // mav.setViewName("index");
 
-        return mav;
+        return "redirect:/";
     }
 }
